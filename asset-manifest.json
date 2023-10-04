@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/Ecommerece-React-App/static/css/main.14982971.css",
+    "main.js": "/Ecommerece-React-App/static/js/main.a82f21df.js",
+    "static/js/787.419af693.chunk.js": "/Ecommerece-React-App/static/js/787.419af693.chunk.js",
+    "static/media/fa-solid-900.ttf": "/Ecommerece-React-App/static/media/fa-solid-900.d75e3fd1eb12e9bd6655.ttf",
+    "static/media/background.jpg": "/Ecommerece-React-App/static/media/background.1ea949fdf80a004e3b74.jpg",
+    "static/media/fa-brands-400.ttf": "/Ecommerece-React-App/static/media/fa-brands-400.016b4a6cdced82ab3aa1.ttf",
+    "static/media/fa-solid-900.woff2": "/Ecommerece-React-App/static/media/fa-solid-900.b6879d41b0852f01ed5b.woff2",
+    "static/media/fa-brands-400.woff2": "/Ecommerece-React-App/static/media/fa-brands-400.878f31251d960bd6266f.woff2",
+    "static/media/fa-regular-400.ttf": "/Ecommerece-React-App/static/media/fa-regular-400.50701fbb8177c2dde530.ttf",
+    "static/media/laptop.jfif": "/Ecommerece-React-App/static/media/laptop.9011fe047d6f1381b973.jfif",
+    "static/media/microwave.jfif": "/Ecommerece-React-App/static/media/microwave.c0c7918bf2795e27fec4.jfif",
+    "static/media/Shaver.jfif": "/Ecommerece-React-App/static/media/Shaver.a866dd19fff144a5e410.jfif",
+    "static/media/fa-regular-400.woff2": "/Ecommerece-React-App/static/media/fa-regular-400.b041b1fa4fe241b23445.woff2",
+    "static/media/Television.jfif": "/Ecommerece-React-App/static/media/Television.1b04a6852776186c2d87.jfif",
+    "static/media/Tablet.jfif": "/Ecommerece-React-App/static/media/Tablet.5fd79776000e26ea739e.jfif",
+    "static/media/Camera.jfif": "/Ecommerece-React-App/static/media/Camera.2486045764d5f17fc8b2.jfif",
+    "static/media/Airconditioner.jfif": "/Ecommerece-React-App/static/media/Airconditioner.fd765423cc5b2a2b0927.jfif",
+    "static/media/Headphone.jfif": "/Ecommerece-React-App/static/media/Headphone.868ef827f9205e1a0d96.jfif",
+    "static/media/visa.jpg": "/Ecommerece-React-App/static/media/visa.80663707ae08c4377074.jpg",
+    "static/media/fa-v4compatibility.ttf": "/Ecommerece-React-App/static/media/fa-v4compatibility.c6a0c95b0a95c4553700.ttf",
+    "static/media/Accessories.jfif": "/Ecommerece-React-App/static/media/Accessories.54af15cff247908710d2.jfif",
+    "static/media/fa-v4compatibility.woff2": "/Ecommerece-React-App/static/media/fa-v4compatibility.1bac2991f3dbfa237aec.woff2",
+    "index.html": "/Ecommerece-React-App/index.html",
+    "main.14982971.css.map": "/Ecommerece-React-App/static/css/main.14982971.css.map",
+    "main.a82f21df.js.map": "/Ecommerece-React-App/static/js/main.a82f21df.js.map",
+    "787.419af693.chunk.js.map": "/Ecommerece-React-App/static/js/787.419af693.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.14982971.css",
+    "static/js/main.a82f21df.js"
+  ]
+}
