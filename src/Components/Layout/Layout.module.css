@@ -1,0 +1,8 @@
+.bgAll 
+{
+    box-shadow: 0px 0px 10px rgb(224, 224, 224) ;
+    border-radius:4px;
+    border: solid 1px rgb(224, 224, 224) ;
+    background-color: white;
+}
+

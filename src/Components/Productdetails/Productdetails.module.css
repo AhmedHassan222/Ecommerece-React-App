@@ -1,0 +1,16 @@
+.btnStyle 
+{
+    padding-block: 7px;
+    padding-inline:17px;
+    color: white;
+    background-color: rgb(16, 124, 160);
+    width: 50%;
+    transition: all 0.5s;
+    border: none;
+}
+.btnStyle:hover 
+{
+    background-color: rgb(11, 84, 109);
+
+
+}

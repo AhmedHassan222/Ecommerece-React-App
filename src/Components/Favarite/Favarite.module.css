@@ -1,0 +1,63 @@
+.btnAllStyle {
+ 
+    background-color: rgb(12, 92, 119);
+    color: white;
+    border: none;
+}
+
+.btnStyle {
+    padding-block: 7px;
+    padding-inline: 17px;
+    background-color: rgb(12, 92, 119);
+    color: white;
+    width: 100%;
+    transition: all 0.5s;
+    border: none;
+}
+
+.btnStyle:hover,
+.btnAllStyle:hover {
+
+    color: white;
+    background-color: rgb(9, 62, 80);
+
+
+}
+
+
+
+.xStyle {
+    color: gray;
+    transition: all 0.5s;
+}
+
+.xStyle:hover {
+    color: red !important;
+    cursor: pointer;
+}
+
+.favarite {
+    min-height: 100vh !important;
+}
+.textNameContent 
+{
+    height: 120px;
+    overflow: hidden;
+}
+
+
+
+@media screen and (min-width:0px) and (max-width:576px) {
+    .title {
+        font-size: 16px;
+    }
+    .btnStyle 
+    {
+        font-size: 16px !important;
+    }
+    .btnAllStyle 
+    {
+        font-size: 10px !important;
+    }
+
+}

@@ -1,0 +1,144 @@
+.searchBar
+{
+    width: 90%;
+    padding: 10px !important;
+    border: solid 1px black;
+    border-radius: 20px;
+    background-color: white ;
+   
+}
+aside 
+{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 6666666666666666666666666666666666666666666666666;
+    overflow: auto;
+    background-color: white;
+}
+.searchBar:focus 
+{
+    outline: none;
+}
+.iconStyle 
+{
+    transition: all 0.2s;
+}
+.iconStyle:hover 
+{
+    cursor: pointer;
+    transform: scale(0.9)
+}
+
+.widthCatogery {
+    width: 100%;
+}
+
+.box {
+    border-bottom: solid 1px rgb(223, 223, 223);
+}
+
+.xStyle {
+    transition: all 0.5s;
+}
+
+.xStyle:hover {
+    cursor: pointer;
+    color: red;
+}
+
+
+.link:hover 
+{
+    cursor: pointer;
+}
+
+.content 
+{
+    background-color: rgb(231, 238, 231);
+}
+
+.btnStyle 
+{
+    padding-block: 7px;
+    padding-inline:17px;
+    color: white;
+    background-color: rgb(16, 124, 160);
+    width: 100%;
+    transition: all 0.5s;
+    border: none;
+}
+.btnStyle:hover 
+{
+    background-color: rgb(11, 84, 109);
+
+
+}
+.btnLoadStyle 
+{
+    padding-block: 7px;
+    padding-inline:17px;
+    color: white;
+    background-color: gray;
+    transition: all 0.5s;
+    border: none;
+}
+
+.priceStyle , .link
+{
+    color: rgb(16, 124, 160);
+    transition: all 0.5s;
+}
+
+.link:hover 
+{
+    color: rgb(11, 86, 110);
+    cursor: pointer;
+}
+
+.favarite 
+{
+    transition: all 0.5s;
+}
+.favarite:hover 
+{
+    cursor: pointer;
+}
+
+.box 
+{
+    background-color: white;
+    color: black;
+    text-decoration: none;
+}
+.box:hover
+{
+    text-decoration: none !important;
+}
+
+.textNameContent 
+{
+    height: 120px;
+    overflow: hidden;
+}
+
+
+
+.btnRemove 
+{
+    padding-block: 7px;
+    padding-inline:17px;
+    color: white;
+    background-color: red;
+    width: 100%;
+    transition: all 0.5s;
+    border: none;
+}
+.btnRemove:hover 
+{
+    background-color: rgb(163, 0, 0);
+
+
+}

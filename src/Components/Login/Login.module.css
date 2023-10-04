@@ -1,0 +1,86 @@
+
+
+
+
+
+
+
+
+
+
+.form {
+    box-shadow: 0px 0px 10px rgb(233, 231, 231);
+    padding: 30px;
+    width: 30%;
+    background-color: white;
+
+}
+
+@media screen and (min-width:0px) and (max-width:576px){
+   
+    .form 
+    {
+        width: 75%;
+    }
+}
+@media screen and (min-width:577px) and (max-width:991px){
+   
+    .form 
+    {
+        width: 50%;
+    }
+}
+
+
+
+.button 
+{
+    padding-block: 7px;
+    padding-inline:17px;
+    background-color: white;
+    color: rgb(16, 124, 160);
+    border: solid 1px rgb(16, 124, 160);
+    width: 100%;
+    transition: all 0.5s;
+}
+.button:hover 
+{
+
+    color: white;
+    background-color: rgb(12, 92, 119);
+
+}
+
+.special
+{
+    width: 100%;
+    border: solid 1px gray;
+    padding: 8px;
+    margin-block: 3px;
+}
+
+.special:focus 
+{
+    outline: none;
+    border : solid 1px gray ;
+}
+
+.text 
+{
+    color: rgb(12, 92, 119) !important;
+}
+
+
+a:hover 
+{
+    text-decoration: underline !important;
+
+}
+
+.group 
+{
+    margin-block: 10px;
+}
+
+
+

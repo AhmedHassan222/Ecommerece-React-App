@@ -1,0 +1,74 @@
+.btnStyle 
+{
+    padding-block: 7px;
+    padding-inline:17px;
+    color: white;
+    background-color: rgb(16, 124, 160);
+    width: 100%;
+    transition: all 0.5s;
+    border: none;
+}
+.btnStyle:hover 
+{
+    background-color: rgb(11, 84, 109);
+
+
+}
+.btnLoadStyle 
+{
+    padding-block: 7px;
+    padding-inline:17px;
+    color: white;
+    background-color: gray;
+    transition: all 0.5s;
+    border: none;
+}
+
+.priceStyle , .link
+{
+    color: rgb(16, 124, 160);
+    transition: all 0.5s;
+}
+
+.link:hover 
+{
+    color: rgb(11, 86, 110);
+    cursor: pointer;
+}
+
+.favarite 
+{
+    transition: all 0.5s;
+}
+.favarite:hover 
+{
+    cursor: pointer;
+}
+
+.box 
+{
+    background-color: white;
+}
+
+.textNameContent 
+{
+    height: 120px;
+    overflow: hidden;
+}
+
+.box 
+{
+    background-color: white;
+    color: black;
+    text-decoration: none;
+}
+.box:hover
+{
+    text-decoration: none !important;
+}
+
+
+
+.content:hover {
+    box-shadow: 0px 0px 5px rgb(157, 157, 157);
+}

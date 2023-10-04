@@ -1,0 +1,45 @@
+
+
+.link:hover {
+    text-decoration: none !important;
+    cursor: pointer;
+    color: #ff3c20 !important;
+}
+
+
+
+
+
+.linkStyle:hover {
+    text-decoration: none !important;
+    color: #ff3c20 !important;
+    cursor: pointer;
+}
+
+
+@media screen and (min-width:0px) and (max-width:991px) {
+    .btnMenu {
+        display: block;
+    }
+
+
+}
+
+nav {
+    overflow-x: scroll;
+
+}
+
+nav::-webkit-scrollbar {
+    background-color: #e7e7e7;
+}
+
+nav::-webkit-scrollbar-thumb {
+    background-color: #b0b0b0;
+    border-radius: 10px;
+
+}
+
+nav::-webkit-scrollbar {
+    height: 5px;
+}
