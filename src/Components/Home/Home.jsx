@@ -25,11 +25,11 @@ export default function Home() {
                     <h3 className={`text-white mb-5 mt-3 ${style.mainHead}`}>
                         Buy All Product From One Store
                     </h3>
-                    <a href='#category' >
+                    <Link to={'/laptop'} >
     
                         <button className={`${style.btnStyle}`}>Shop Now</button>
 
-                    </a>
+                    </Link>
                 </div>
             </div>
 
@@ -40,7 +40,7 @@ export default function Home() {
 
 
 
-            <div id='category'>
+            <div >
                 <h3 className='py-5'>Categories</h3>
                 <div className="row g-3">
                     <div className="col-6 col-md-4 col-lg-3">
