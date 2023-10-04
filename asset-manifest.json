@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Ecommerece-React-App/static/css/main.14982971.css",
-    "main.js": "/Ecommerece-React-App/static/js/main.a82f21df.js",
+    "main.js": "/Ecommerece-React-App/static/js/main.3cc3989d.js",
     "static/js/787.419af693.chunk.js": "/Ecommerece-React-App/static/js/787.419af693.chunk.js",
     "static/media/fa-solid-900.ttf": "/Ecommerece-React-App/static/media/fa-solid-900.d75e3fd1eb12e9bd6655.ttf",
     "static/media/background.jpg": "/Ecommerece-React-App/static/media/background.1ea949fdf80a004e3b74.jpg",
@@ -24,11 +24,11 @@
     "static/media/fa-v4compatibility.woff2": "/Ecommerece-React-App/static/media/fa-v4compatibility.1bac2991f3dbfa237aec.woff2",
     "index.html": "/Ecommerece-React-App/index.html",
     "main.14982971.css.map": "/Ecommerece-React-App/static/css/main.14982971.css.map",
-    "main.a82f21df.js.map": "/Ecommerece-React-App/static/js/main.a82f21df.js.map",
+    "main.3cc3989d.js.map": "/Ecommerece-React-App/static/js/main.3cc3989d.js.map",
     "787.419af693.chunk.js.map": "/Ecommerece-React-App/static/js/787.419af693.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.14982971.css",
-    "static/js/main.a82f21df.js"
+    "static/js/main.3cc3989d.js"
   ]
 }
