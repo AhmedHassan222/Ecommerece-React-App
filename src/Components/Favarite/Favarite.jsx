@@ -17,15 +17,15 @@ export default function Favarite() {
         </Helmet>
         <div className={`container  ${style.favarite} py-4`}>
             <div className="row g-2">
-                <div className="d-flex ">
-                    <p className={`my-3  h6 ${style.title}`}>The Items that you added in Favorites List</p>
-                    {localStorage.getItem('favariteArr') !== null ? <button onClick={clearAll} className={`${style.btnAllStyle} ms-5 px-3`}>Clear All</button> : ''}
+                <div className="d-flex my-3 justify-content-between ">
+                    <h6 className={`   ${style.title}`}>The Items that you added in Favorites List</h6>
+                    {localStorage.getItem('favariteArr') !== null ? <button onClick={clearAll} className={`btn btn-danger px-2 text-white `}>ClearAll</button> : ''}
                 </div>
                 {localStorage.getItem('favariteArr') === null ? <p className="text-danger">*No Item added yet</p> : '  '}
 
 
                 {Array.from(new Set(favariteArr)).map((item, index) => (
-                    <div key={index} className="col-6 col-sm-6 col-md-4 col-lg-3 py-4">
+                    <div key={index} className=" col-sm-12 col-md-4 col-lg-3 py-4">
                         <div className="position-relative">
                             <div className='box bg-white p-2
                             '>

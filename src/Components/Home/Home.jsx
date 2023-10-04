@@ -21,7 +21,7 @@ export default function Home() {
         <header style={{ backgroundImage: `url("${backgroundImage}")` }} className='w-100 vh-100 '>
             <div className={`${style.layer} w-100 h-100 d-flex justify-content-center align-items-center  text-center`}>
                 <div>
-                    <h3 className='text-white'>Welcome</h3>
+                    <h3 className={`text-white ${style.mainHead}`}>Welcome</h3>
                     <h3 className={`text-white mb-5 mt-3 ${style.mainHead}`}>
                         Buy All Product From One Store
                     </h3>
