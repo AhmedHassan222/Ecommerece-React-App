@@ -147,7 +147,6 @@ function FavariteContextProvide(props) {
             localStorage.setItem('totalPrice', JSON.stringify(totalPrice))
         } else {
             setIsLogin(false)
-
         }
     }
 

@@ -7,7 +7,7 @@ import { favariteContext } from './../../Context/Favaritestore';
 
 export default function Asidebar() {
 
-    let { addToCart, addToFavarite, itemsInCart, getProducts } = useContext(favariteContext)
+    let { addToCart, addToFavarite, itemsInCart, getProducts , favariteArr } = useContext(favariteContext)
     let { search, itemsArray, wordSearch } = useContext(wordContext)
     let navigate = useNavigate()
     function goToHome() {
@@ -19,7 +19,7 @@ export default function Asidebar() {
         getProducts('allproduct')
         document.querySelector('body').classList.add('overflow-hidden')
 
-    }, [])
+    }, [itemsInCart.length,favariteArr.length])
     return <>
         <aside >
             <div className={`   ${style.box}`}>
@@ -49,8 +49,9 @@ export default function Asidebar() {
 
                                     <div className="d-flex justify-content-between">
                                         <p className={`${style.priceStyle} fs-5`}>{parseFloat(item.price) * 1000} E£</p>
-                                        {localStorage.getItem('user') !== null ? <i onClick={() => { addToFavarite(item) }} className={`fa-regular fa-heart fs-5 ${style.favarite}`}></i> : <Link to={'/login'}><i className={`fa-regular fa-heart fs-5 ${style.favarite}`}></i></Link>}
-                                    </div>
+                                        {localStorage.getItem('user') !== null ? <div>
+                                        {Array.from(new Set(favariteArr.map((element) => element.name))).includes(item.name) ? <i className={`fa-solid fa-heart fs-5 `}></i> : <i onClick={() => { addToFavarite(item) }} className={`fa-regular fa-heart fs-5 ${style.favarite}`}></i>}
+                                    </div> : <Link to={'/login'}><i className={`fa-regular fa-heart fs-5 ${style.favarite}`}></i></Link>}                                    </div>
                                     {localStorage.getItem('user') !== null ? <div>
                                     {Array.from(new Set(itemsInCart.map((element) => element.name))).includes(item.name) ? <p><i class="fa-regular fa-circle-check"></i> Item added to cart</p> : <button onClick={() => { addToCart(item) }} className={`${style.btnStyle}`}>Add To Cart</button>}
                                 </div> : <Link to={'/login'}><button className={`${style.btnStyle}`}>Add To Cart</button></Link>}
