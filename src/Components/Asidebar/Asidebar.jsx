@@ -19,7 +19,7 @@ export default function Asidebar() {
         getProducts('allproduct')
         document.querySelector('body').classList.add('overflow-hidden')
 
-    }, [itemsInCart.length,favariteArr.length])
+    }, [])
     return <>
         <aside >
             <div className={`   ${style.box}`}>
