@@ -112,7 +112,7 @@ function FavariteContextProvide(props) {
                 price += parseFloat(newCartArray[i].price) * 1000;
 
             }
-            setTotalPrice(price / 2)
+            setTotalPrice(price)
             setCountCart(localStorage.getItem('countCart'))
         } else {
             setItemsInCart([])
