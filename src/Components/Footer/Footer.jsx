@@ -52,31 +52,31 @@ export default function Footer() {
                                 Products
                             </h6>
                             <span className={`${style.item}`}>
-                                <Link className={`nav-link     ${style.link}`} to="laptop">Laptop</Link>
+                                <Link className={`nav-link     ${style.link}`} to="products/laptop">Laptop</Link>
                             </span>
                             <span className={`${style.item}`}>
-                                <Link className={`nav-link     ${style.link}`} to="Cameras">Cameras</Link>
+                                <Link className={`nav-link     ${style.link}`} to="products/Cameras">Cameras</Link>
                             </span>
                             <span className={`${style.item}`}>
-                                <Link className={`nav-link     ${style.link}`} to="televisions">Televisions</Link>
+                                <Link className={`nav-link     ${style.link}`} to="products/televisions">Televisions</Link>
                             </span>
                             <span className={`${style.item}`}>
-                                <Link className={`nav-link     ${style.link}`} to="tablets">Tablets</Link>
+                                <Link className={`nav-link     ${style.link}`} to="products/tablets">Tablets</Link>
                             </span>
                             <span className={`${style.item}`}>
-                                <Link className={`nav-link     ${style.link}`} to="shaver">Shaver</Link>
+                                <Link className={`nav-link     ${style.link}`} to="products/shaver">Shaver</Link>
                             </span>
                             <span className={`${style.item}`}>
-                                <Link className={`nav-link     ${style.link}`} to="microwave">Microwave</Link>
+                                <Link className={`nav-link     ${style.link}`} to="products/microwave">Microwave</Link>
                             </span>
                             <span className={`${style.item}`}>
-                                <Link className={`nav-link     ${style.link}`} to="headphones">Headphones</Link>
+                                <Link className={`nav-link     ${style.link}`} to="products/headphones">Headphones</Link>
                             </span>
                             <span className={`${style.item}`}>
-                                <Link className={`nav-link     ${style.link}`} to="airconditioner">AirConditioner</Link>
+                                <Link className={`nav-link     ${style.link}`} to="products/airconditioner">AirConditioner</Link>
                             </span>
                             <span className={`${style.item}`}>
-                                <Link className={`nav-link     ${style.link}`} to="accessories">Accessories</Link>
+                                <Link className={`nav-link     ${style.link}`} to="products/accessories">Accessories</Link>
                             </span>
                         </div>
                         <div className="col-sm-12 col-md-6 col-lg-3 mx-auto mb-4">

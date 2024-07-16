@@ -1,12 +1,19 @@
-import { useContext, useState } from "react"
-import style from "./Cart.module.css"
+import { useContext, useMemo, useState } from "react"
 import { favariteContext } from "../../Context/Favaritestore"
 import { Helmet } from "react-helmet"
 import { Link } from "react-router-dom"
 export default function Cart() {
-    let { itemsInCart, clearAllItemsFromCart, removeItemFromCart, totalPrice, favariteArr, clearItem, addToFavarite } = useContext(favariteContext)
+    let { itemsInCart, removeItemFromCart, totalPrice, favariteArr, clearItem, addToFavarite , setItemsInCart } = useContext(favariteContext)
+    // const [count, setCount] = useState(1)
     const [discount, setDiscount] = useState(0)
     const [input, setInput] = useState(0)
+    // useMemo(()=>{
+    //     // document.querySelector('select').value
+    //     return count
+    // },[])
+    // function updateCount(count, index) {
+    //     setNewPrice([parseFloat(Array.from(new Set(itemsInCart))[index].price) * 1000 * count, index])
+    // }
     function apply() {
         if (input === 'Z100') {
             setDiscount(totalPrice * 25 / 100)
@@ -36,16 +43,19 @@ export default function Cart() {
                                         </div>
                                     </div>
                                     <div className="col-lg-2 col-sm-6 col-6 d-flex flex-row flex-lg-column flex-xl-row text-nowrap">
-                                        <div className=" me-4">
-                                            <select className="form-select me-4">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                            </select>
+                                        <div className=" me-4 ">
+                                            {/* <select onChange={(e) => { updateCount(e.target.value, index) }} className="form-select me-4">
+                                                <option value={1}>1</option>
+                                                <option value={2}>2</option>
+                                                <option value={3}>3</option>
+                                                <option value={4}>4</option>
+                                            </select> */}
+                                            {/* <button className=" btn btn-success fs-6 py-1 px-2 rounded-0" onClick={()=>{setCount(count - 1)}}>-</button>
+                                            <span className="mx-2">{count}</span>
+                                            <button  className=" btn btn-success fs-6 py-1 px-2 rounded-0"onClick={() => {setCount(count + 1)}}>+</button> */}
                                         </div>
                                         <div className="">
-                                            <text className="h6">E£ {parseFloat(item.price) * 1000} </text> <br />
+                                            <text className="h6">E£ { parseFloat(item.price) * 1000 } </text> <br />
                                         </div>
                                     </div>
                                     <div className="col-lg col-sm-6 d-flex justify-content-sm-center justify-content-md-start justify-content-lg-center justify-content-xl-end mb-2">
@@ -111,3 +121,41 @@ export default function Cart() {
         </section>
     </>
 }
+
+
+// import React, { useState } from 'react';
+
+// const Cart = () => {
+//     // Initial state of the cart
+//     const [cart, setCart] = useState([
+//         { id: 1, name: 'Product 1', quantity: 1, price: 10 },
+//         { id: 2, name: 'Product 2', quantity: 1, price: 20 },
+//     ]);
+
+//     // Function to handle quantity change
+//     const handleQuantityChange = (productId, amount) => {
+//         setCart(cart.map(item =>
+//             item.id === productId
+//                 ? { ...item, quantity: item.quantity + amount }
+//                 : item
+//         ));
+//     };
+
+//     return (
+//         <div>
+//             <h2>Shopping Cart</h2>
+//             <ul>
+//                 {cart.map(item => (
+//                     <li key={item.id}>
+//                         {item.name} - Quantity: {item.quantity}
+//                         <button onClick={() => handleQuantityChange(item.id, 1)}>+</button>
+//                         <button onClick={() => handleQuantityChange(item.id, -1)}>-</button>
+//                     </li>
+//                 ))}
+//             </ul>
+//             <div>Total: ${cart.reduce((total, item) => total + item.price * item.quantity, 0)}</div>
+//         </div>
+//     );
+// };
+
+// export default Cart;

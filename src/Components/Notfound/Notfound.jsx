@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import { useEffect } from "react";
 export default function Notfound() {
+    useEffect(() => {
+        window.scroll(0, 0)
+    }, [])
     return <>
         <Helmet>
             <title>Not Found Page</title>
