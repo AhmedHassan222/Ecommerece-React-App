@@ -1,9 +1,6 @@
 import { createContext, useState, useEffect } from "react"
-import axios from "axios"
-
 export let favariteContext = createContext(0)
 function FavariteContextProvide(props) {
-
     let price = 0;
     const [isLogin, setIsLogin] = useState(false)
     // function add to favarite >>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -12,7 +9,7 @@ function FavariteContextProvide(props) {
     function addToFavarite(item) {
         if (localStorage.getItem('user') !== null) {
             setIsLogin(true)
-            if (favariteArr == []) {
+            if (!favariteArr) {
                 setFavariteArr(item)
                 setCount(1)
                 localStorage.setItem('count', 1)
@@ -22,10 +19,8 @@ function FavariteContextProvide(props) {
                 setCount(Array.from(new Set(favariteArr)).length)
             }
             localStorage.setItem('favariteArr', JSON.stringify(favariteArr))
-
         } else {
             setIsLogin(false)
-
         }
     }
     //function clear all
@@ -35,7 +30,7 @@ function FavariteContextProvide(props) {
         setCount(0)
     }
     function clearItem(item) {
-        if (favariteArr.length == 1) {
+        if (favariteArr.length === 1) {
             clearAll()
         } else {
             setFavariteArr(favariteArr.filter(function (x) {
@@ -45,54 +40,8 @@ function FavariteContextProvide(props) {
                 return x !== item;
             })))
             setCount(count - 1)
-        }
-    }
-    // functions get from Api .>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    const [allProducts, setAllProduct] = useState([])
-    const [accessories, setAccessories] = useState([])
-    const [homeappliances, setHomeappliances] = useState([])
-    const [cameras, setCameras] = useState([])
-    const [headphones, setHeadphones] = useState([])
-    const [kitchen, setKitchen] = useState([])
-    const [personalcare, setPersonalcare] = useState([])
-    const [mobilesandtablets, setMobilesandtablets] = useState([])
-    const [televisions, setTelevisions] = useState([])
-    const [computers, setComputers] = useState([])
-    async function getProducts(type) {
-        let { data } = await axios.get(`https://rus-digital-televisions.onrender.com/${type}`)
-        switch (type) {
-            case 'allProducts':
-                setAllProduct(data)
-                break;
-            case 'accessories':
-                setAccessories(data)
-                break;
-            case 'homeappliances':
-                setHomeappliances(data)
-                break;
-            case 'cameras':
-                setCameras(data)
-                break;
-            case 'headphones':
-                setHeadphones(data)
-                break;
-            case 'kitchen':
-                setKitchen(data)
-                break;
-            case 'personalcare':
-                setPersonalcare(data)
-                break;
-            case 'mobilesandtablets':
-                setMobilesandtablets(data)
-                break;
-            case 'televisions':
-                setTelevisions(data)
-                break;
-            case 'computers':
-                setComputers(data)
-                break;
-            default:
-                break;
+            localStorage.setItem('count', count - 1)
+
         }
     }
     useEffect(() => {
@@ -132,7 +81,7 @@ function FavariteContextProvide(props) {
     function addToCart(item) {
         if (localStorage.getItem('user') !== null) {
             setIsLogin(true)
-            if (itemsInCart == []) {
+            if (!itemsInCart) {
                 setItemsInCart(item)
                 setCountCart(1)
                 localStorage.setItem('countCart', 1)
@@ -168,7 +117,7 @@ function FavariteContextProvide(props) {
     function removeItemFromCart(item) {
 
 
-        if (itemsInCart.length == 1) {
+        if (itemsInCart.length === 1) {
             clearAllItemsFromCart()
         } else {
             setItemsInCart(itemsInCart.filter(function (z) {
@@ -188,11 +137,12 @@ function FavariteContextProvide(props) {
             setTotalPrice(price)
             localStorage.setItem('totalPrice', price)
             setCountCart(countCart - 1)
+            localStorage.setItem('countCart', countCart - 1)
 
         }
     }
 
-    return <favariteContext.Provider value={{ favariteArr, isLogin, setCountCart, allProducts, getProducts, totalPrice, removeItemFromCart, clearAllItemsFromCart, countCart, itemsInCart, setItemsInCart, addToCart, accessories, homeappliances, cameras, headphones, kitchen, personalcare, mobilesandtablets, televisions, computers, setCount, setFavariteArr, count, addToFavarite, favariteArr, clearAll, clearItem, setTotalPrice }}>
+    return <favariteContext.Provider value={{ favariteArr, isLogin, setCountCart, totalPrice, removeItemFromCart, clearAllItemsFromCart, countCart, itemsInCart, setItemsInCart, addToCart, setCount, setFavariteArr, count, addToFavarite, clearAll, clearItem, setTotalPrice }}>
         {props.children}
     </favariteContext.Provider>
 }

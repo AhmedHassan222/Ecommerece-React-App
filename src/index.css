@@ -3,3 +3,8 @@ body {
   background-color: whitesmoke;
   font-family: 'Lora', serif;
 }
+
+i:hover 
+{
+  cursor: pointer;
+}

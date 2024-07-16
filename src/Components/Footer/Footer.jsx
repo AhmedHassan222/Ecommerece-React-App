@@ -11,34 +11,31 @@ export default function Footer() {
             <p onClick={goToUp} className={`text-center ${style.bgTop} fw-bold p-4 mb-0`}>Back To Top</p>
         </div>
         <footer className={`text-center text-lg-start ${style.bg} text-muted `}>
-
             <section className="d-flex justify-content-center justify-content-lg-between p-4 mt-0 border-bottom">
                 <div className="me-5 d-none d-lg-block">
                     <span>Get connected with us on social networks:</span>
                 </div>
-
                 <div>
-                    <a href="" className="me-4 link-secondary">
+                    <Link to={'/'} className="me-4 link-secondary">
                         <i className="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="" className="me-4 link-secondary">
+                    </Link>
+                    <Link to={'/'} className="me-4 link-secondary">
                         <i className="fab fa-twitter"></i>
-                    </a>
-                    <a href="" className="me-4 link-secondary">
+                    </Link>
+                    <Link to={'/'} className="me-4 link-secondary">
                         <i className="fab fa-google"></i>
-                    </a>
-                    <a href="" className="me-4 link-secondary">
+                    </Link>
+                    <Link to={'/'} className="me-4 link-secondary">
                         <i className="fab fa-instagram"></i>
-                    </a>
-                    <a href="" className="me-4 link-secondary">
+                    </Link>
+                    <Link to={'/'} className="me-4 link-secondary">
                         <i className="fab fa-linkedin"></i>
-                    </a>
-                    <a href="" className="me-4 link-secondary">
+                    </Link>
+                    <Link to={'/'} className="me-4 link-secondary">
                         <i className="fab fa-github"></i>
-                    </a>
+                    </Link>
                 </div>
             </section>
-
             <section className="">
                 <div className="container text-center text-md-start mt-5">
                     <div className="row g-4 mt-3">
@@ -50,12 +47,10 @@ export default function Footer() {
                                 you can buy all products that you search in eMarket
                             </p>
                         </div>
-
                         <div className="col-sm-12 col-md-6 col-lg-3 mx-auto mb-4">
                             <h6 className="text-uppercase fw-bold mb-4">
                                 Products
                             </h6>
-
                             <span className={`${style.item}`}>
                                 <Link className={`nav-link     ${style.link}`} to="laptop">Laptop</Link>
                             </span>
@@ -84,7 +79,6 @@ export default function Footer() {
                                 <Link className={`nav-link     ${style.link}`} to="accessories">Accessories</Link>
                             </span>
                         </div>
-
                         <div className="col-sm-12 col-md-6 col-lg-3 mx-auto mb-4">
                             <h6 className="text-uppercase fw-bold mb-4">
                                 Useful links
@@ -99,7 +93,6 @@ export default function Footer() {
                                 <Link className={`nav-link     ${style.link}`} to="asidebar">Search</Link>
                             </span>
                         </div>
-
                         <div className="col-sm-12 col-md-6 col-lg-3 mx-auto mb-md-0 mb-4">
                             <h6 className="text-uppercase fw-bold mb-4">Contact</h6>
                             <p><i className="fas fa-home me-3 text-secondary"></i> Alexandria, Egypt</p>
@@ -112,13 +105,9 @@ export default function Footer() {
                     </div>
                 </div>
             </section>
-
             <div className="text-center p-4" style={{ backgroundColor: "rgba(0, 0, 0, 0.025)" }}>
                 © 2023 Copyright:Ahme Hassan
             </div>
         </footer>
-
-
-
     </>
 }

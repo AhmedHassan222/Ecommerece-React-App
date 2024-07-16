@@ -4,7 +4,6 @@ import paypal from '../../assets/paypal.jpg'
 import { useContext, useState } from 'react'
 import { favariteContext } from './../../Context/Favaritestore';
 import { useNavigate } from 'react-router-dom';
-
 export default function () {
     let { setItemsInCart, setCountCart } = useContext(favariteContext)
     let navigate = useNavigate()

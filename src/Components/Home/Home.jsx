@@ -12,9 +12,18 @@ import { Helmet } from 'react-helmet';
 import style from './Home.module.css'
 import backgroundImage from "../../assets/background.jpg"
 export default function Home() {
-
+    const Categories = [
+        { img: laptop, name: "laptop", link: 'products/laptop' },
+        { img: camera, name: "camera", link: 'products/Cameras' },
+        { img: television, name: "television", link: 'products/televisions' },
+        { img: airconditioner, name: "airconditioner", link: 'products/airconditioner' },
+        { img: microwave, name: "microwave", link: 'products/microwave' },
+        { img: Shaver, name: "Shaver", link: 'products/shaver' },
+        { img: tablet, name: "tablet", link: 'products/tablets' },
+        { img: Headphone, name: "Headphone", link: 'products/headphones' },
+        { img: Accessories, name: "Accessories", link: 'products/accessories' },
+    ]
     return <>
-
         <Helmet>
             <title>Home Page - eMarket </title>
         </Helmet>
@@ -26,119 +35,25 @@ export default function Home() {
                         Buy All Product From One Store
                     </h3>
                     <Link to={'/laptop'} >
-    
                         <button className={`${style.btnStyle}`}>Shop Now</button>
-
                     </Link>
                 </div>
             </div>
-
         </header>
-
         <div className='container'>
-
-
-
-
             <div >
                 <h3 className='py-5'>Categories</h3>
                 <div className="row g-3">
-                    <div className="col-6 col-md-4 col-lg-3">
+                    {Categories.map((category, index) => <div key={index} className="col-6 col-md-4 col-lg-3">
                         <div className={`${style.box}  `}>
-                            <Link className={`${style.linkStyle}`} to='laptop'>
-                                <img className='w-100' src={laptop} alt="" />
-
-                                <h3 className="text-center h6">Laptops</h3>
-
+                            <Link className={`${style.linkStyle}`} to={category.link}>
+                                <img className='w-100' src={category.img} alt="" />
+                                <h3 className="text-center h6">{category.name}</h3>
                             </Link>
                         </div>
-                    </div>
-                    <div className="col-6 col-md-4 col-lg-3">
-                        <div className={`${style.box}  `}>
-                            <Link className={`${style.linkStyle}`} to='cameras'>
-                                <img className='w-100' src={camera} alt="" />
-                                <h3 className="text-center h6">Cameras</h3>
-
-                            </Link>
-
-                        </div>
-                    </div>
-                    <div className="col-6 col-md-4 col-lg-3">
-                        <div className={`${style.box}  `}>
-                            <Link className={`${style.linkStyle}`} to='televisions'>
-                                <img className='w-100' src={television} alt="" />
-                                <h3 className="text-center h6">Televisions</h3>
-
-                            </Link>
-
-                        </div>
-                    </div>
-                    <div className="col-6 col-md-4 col-lg-3">
-                        <div className={`${style.box}  `}>
-                            <Link className={`${style.linkStyle}`} to='microwave'>
-                                <img className='w-100' src={microwave} alt="" />
-                                <h3 className="text-center h6">Microwaves</h3>
-
-                            </Link>
-
-                        </div>
-                    </div>
-                    <div className="col-6 col-md-4 col-lg-3">
-                        <div className={`${style.box}  `}>
-                            <Link className={`${style.linkStyle}`} to='airconditioner'>
-
-                                <img className='w-100' src={airconditioner} alt="" />
-                                <h3 className="text-center h6">Airconditioners</h3>
-                            </Link>
-
-                        </div>
-                    </div>
-                    <div className="col-6 col-md-4 col-lg-3">
-                        <div className={`${style.box}  `}>
-                            <Link className={`${style.linkStyle}`} to='shaver'>
-                                <img className='w-100' src={Shaver} alt="" />
-                                <h3 className="text-center h6">Shavers</h3>
-
-                            </Link>
-
-                        </div>
-                    </div>
-                    <div className="col-6 col-md-4 col-lg-3">
-                        <div className={`${style.box}  `}>
-                            <Link className={`${style.linkStyle}`} to='tablets'>
-                                <img className='w-100' src={tablet} alt="" />
-                                <h3 className="text-center h6">Tablets</h3>
-
-                            </Link>
-
-                        </div>
-                    </div>
-                    <div className="col-6 col-md-4 col-lg-3">
-                        <div className={`${style.box}  `}>
-                            <Link className={`${style.linkStyle}`} to='headphones'>
-                                <img className='w-100' src={Headphone} alt="" />
-                                <h3 className="text-center h6">Headphones</h3>
-
-                            </Link>
-
-                        </div>
-                    </div>
-                    <div className="col-6 col-md-4 col-lg-3">
-                        <div className={`${style.box}  `}>
-                            <Link className={`${style.linkStyle}`} to='accessories'>
-                                <img className='w-100' src={Accessories} alt="" />
-                                <h3 className="text-center h6">Accessories</h3>
-
-                            </Link>
-
-                        </div>
-                    </div>
+                    </div>)}
                 </div>
             </div>
         </div>
-
-
     </>
 }
-
-

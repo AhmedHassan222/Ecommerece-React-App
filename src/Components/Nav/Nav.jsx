@@ -5,7 +5,6 @@ import { favariteContext } from "../../Context/Favaritestore";
 import loginNav from '../../assets/logo-footer.png'
 export default function Nav() {
     let { setCountCart, countCart, count, setCount, setFavariteArr, setItemsInCart , setTotalPrice } = useContext(favariteContext)
-
     let navigate = useNavigate()
     function logout() {
         localStorage.removeItem('user')
@@ -24,11 +23,8 @@ export default function Nav() {
         window.addEventListener('scroll', function () {
             if (this.window.scrollY >= 100) {
                 this.document.querySelector('#nav2').classList.add('fixed-top')
-
             } else {
                 this.document.querySelector('#nav2').classList.remove('fixed-top')
-
-
             }
         })
     }, [window.scrollY])
@@ -54,13 +50,12 @@ export default function Nav() {
                             <i className={`fa-solid fa-bag-shopping      `}></i>{countCart}
                         </Link>
                     </span>
-
                     {
-                        localStorage.getItem('user') == null ? <div className="d-flex">
+                        localStorage.getItem('user') === null ? <div className="d-flex">
                             <span className="nav-item">
-                                <Link className={`nav-link ${style.linkStyle}    p-1   mx-1 `} to="login"><i class="fa-solid fa-user"></i> Login</Link>
+                                <Link className={`nav-link ${style.linkStyle}    p-1   mx-1 `} to="login"><i className="fa-solid fa-user"></i> Login</Link>
                             </span>
-                        </div> : <li onClick={logout} className={`nav-link ${style.linkStyle}     p-1     mx-1 `} ><i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out  </li>
+                        </div> : <li onClick={logout} className={`nav-link ${style.linkStyle}     p-1     mx-1 `} ><i className="fa-solid fa-arrow-right-from-bracket"></i> Log Out  </li>
                     }
                 </div>
             </div>
@@ -71,31 +66,31 @@ export default function Nav() {
                     <Link className={`p-3 nav-link       ${style.link}`} to="">Home</Link>
                 </span>
                 <span className="nav-item">
-                    <Link className={`p-3 nav-link       ${style.link}`} to="laptop">Laptop</Link>
+                    <Link className={`p-3 nav-link       ${style.link}`} to="products/laptop">Laptop</Link>
                 </span>
                 <span className="nav-item">
-                    <Link className={`p-3 nav-link       ${style.link}`} to="Cameras">Cameras</Link>
+                    <Link className={`p-3 nav-link       ${style.link}`} to="products/Cameras">Cameras</Link>
                 </span>
                 <span className="nav-item">
-                    <Link className={`p-3 nav-link       ${style.link}`} to="televisions">Televisions</Link>
+                    <Link className={`p-3 nav-link       ${style.link}`} to="products/televisions">Televisions</Link>
                 </span>
                 <span className="nav-item">
-                    <Link className={`p-3 nav-link       ${style.link}`} to="tablets">Tablets</Link>
+                    <Link className={`p-3 nav-link       ${style.link}`} to="products/tablets">Tablets</Link>
                 </span>
                 <span className="nav-item">
-                    <Link className={`p-3 nav-link       ${style.link}`} to="shaver">Shaver</Link>
+                    <Link className={`p-3 nav-link       ${style.link}`} to="products/shaver">Shaver</Link>
                 </span>
                 <span className="nav-item">
-                    <Link className={`p-3 nav-link       ${style.link}`} to="microwave">Microwave</Link>
+                    <Link className={`p-3 nav-link       ${style.link}`} to="products/microwave">Microwave</Link>
                 </span>
                 <span className="nav-item">
-                    <Link className={`p-3 nav-link       ${style.link}`} to="headphones">Headphones</Link>
+                    <Link className={`p-3 nav-link       ${style.link}`} to="products/headphones">Headphones</Link>
                 </span>
                 <span className="nav-item">
-                    <Link className={`p-3 nav-link       ${style.link}`} to="airconditioner">AirConditioner</Link>
+                    <Link className={`p-3 nav-link       ${style.link}`} to="products/airconditioner">AirConditioner</Link>
                 </span>
                 <span className="nav-item">
-                    <Link className={`p-3 nav-link       ${style.link}`} to="accessories">Accessories</Link>
+                    <Link className={`p-3 nav-link       ${style.link}`} to="products/accessories">Accessories</Link>
                 </span>
             </div>
         </nav >

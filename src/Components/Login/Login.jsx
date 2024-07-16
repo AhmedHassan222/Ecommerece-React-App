@@ -68,7 +68,7 @@ export default function Login() {
                 <h3 className=' text-start mb-5'>Sign In</h3>
                 {errorList.length > 0 ? <div>
                     <ul className='p-1 text-danger'>
-                        {errorList.map((error, index) => error.context.label == "password" ? <li key={index} className='p-1 '>password must more than 8 letter</li> : <li className='p-1' key={index} >{error.message}</li>)}
+                        {errorList.map((error, index) => error.context.label === "password" ? <li key={index} className='p-1 '>password must more than 8 letter</li> : <li className='p-1' key={index} >{error.message}</li>)}
 
                     </ul>
                 </div> : ""}
@@ -85,8 +85,8 @@ export default function Login() {
 
 
                 <button className={`${style.button} `}>
-                    {isLoading == true ? <div class="spinner-border " role="status">
-                        <span class="visually-hidden  ">Loading...</span>
+                    {isLoading === true ? <div className="spinner-border " role="status">
+                        <span className="visually-hidden  ">Loading...</span>
                     </div> : 'Login'}
                 </button>
 

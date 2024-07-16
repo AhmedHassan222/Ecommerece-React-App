@@ -1,7 +1,5 @@
 import { Helmet } from "react-helmet"
-
 export default function Noconnected() {
-
     return <>
         <Helmet>
             <title>No internet connection</title>
