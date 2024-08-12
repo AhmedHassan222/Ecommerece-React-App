@@ -34,7 +34,7 @@ export default function Home() {
                     <h3 className={`text-white mb-5 mt-3 ${style.mainHead}`}>
                         Buy All Product From One Store
                     </h3>
-                    <Link to={'/laptop'} >
+                    <Link to={'products/laptop'} >
                         <button className={`${style.btnStyle}`}>Shop Now</button>
                     </Link>
                 </div>
@@ -47,7 +47,7 @@ export default function Home() {
                     {Categories.map((category, index) => <div key={index} className="col-6 col-md-4 col-lg-3">
                         <div className={`${style.box}  `}>
                             <Link className={`${style.linkStyle}`} to={category.link}>
-                                <img className='w-100' src={category.img} alt="" />
+                                <img className='w-100' src={category.img} alt={category.name} />
                                 <h3 className="text-center h6">{category.name}</h3>
                             </Link>
                         </div>

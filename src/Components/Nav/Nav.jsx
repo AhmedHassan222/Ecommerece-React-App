@@ -55,7 +55,7 @@ export default function Nav() {
                             <span className="nav-item">
                                 <Link className={`nav-link ${style.linkStyle}    p-1   mx-1 `} to="login"><i className="fa-solid fa-user"></i> Login</Link>
                             </span>
-                        </div> : <li onClick={logout} className={`nav-link ${style.linkStyle}     p-1     mx-1 `} ><i className="fa-solid fa-arrow-right-from-bracket"></i> Log Out  </li>
+                        </div> : <li onClick={logout} className={`nav-link ${style.linkStyle}     p-1     mx-1 `} ><i className="fa-solid fa-arrow-right-from-bracket"></i></li>
                     }
                 </div>
             </div>

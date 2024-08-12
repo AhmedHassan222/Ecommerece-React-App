@@ -3,17 +3,29 @@ import { favariteContext } from "../../Context/Favaritestore"
 import { Helmet } from "react-helmet"
 import { Link } from "react-router-dom"
 export default function Cart() {
-    let { itemsInCart, removeItemFromCart, totalPrice, favariteArr, clearItem, addToFavarite , setItemsInCart } = useContext(favariteContext)
-    // const [count, setCount] = useState(1)
+    let { itemsInCart, removeItemFromCart, totalPrice, favariteArr, clearItem, addToFavarite, setItemsInCart } = useContext(favariteContext)
     const [discount, setDiscount] = useState(0)
     const [input, setInput] = useState(0)
-    // useMemo(()=>{
-    //     // document.querySelector('select').value
-    //     return count
-    // },[])
-    // function updateCount(count, index) {
-    //     setNewPrice([parseFloat(Array.from(new Set(itemsInCart))[index].price) * 1000 * count, index])
-    // }
+    function increaseQuantity(item) {
+        for (let i = 0; i < itemsInCart.length; i++) {
+            if (item.id === itemsInCart[i].id) {
+                ++itemsInCart[i].Quantity
+            }
+        }
+        localStorage.setItem('itemsInCart', JSON.stringify(itemsInCart))
+        setItemsInCart(JSON.parse(localStorage.getItem('itemsInCart')))
+    }
+    function decreaseQuantity(item) {
+        for (let i = 0; i < itemsInCart.length; i++) {
+            if (item.id === itemsInCart[i].id) {
+                if(itemsInCart[i].Quantity > 1){
+                    --itemsInCart[i].Quantity;
+                }
+            }
+        }
+        localStorage.setItem('itemsInCart', JSON.stringify(itemsInCart))
+        setItemsInCart(JSON.parse(localStorage.getItem('itemsInCart')))
+    }
     function apply() {
         if (input === 'Z100') {
             setDiscount(totalPrice * 25 / 100)
@@ -44,18 +56,12 @@ export default function Cart() {
                                     </div>
                                     <div className="col-lg-2 col-sm-6 col-6 d-flex flex-row flex-lg-column flex-xl-row text-nowrap">
                                         <div className=" me-4 ">
-                                            {/* <select onChange={(e) => { updateCount(e.target.value, index) }} className="form-select me-4">
-                                                <option value={1}>1</option>
-                                                <option value={2}>2</option>
-                                                <option value={3}>3</option>
-                                                <option value={4}>4</option>
-                                            </select> */}
-                                            {/* <button className=" btn btn-success fs-6 py-1 px-2 rounded-0" onClick={()=>{setCount(count - 1)}}>-</button>
-                                            <span className="mx-2">{count}</span>
-                                            <button  className=" btn btn-success fs-6 py-1 px-2 rounded-0"onClick={() => {setCount(count + 1)}}>+</button> */}
+                                            <button className=" btn btn-success fs-6 py-1 px-2 rounded-0" onClick={() =>  decreaseQuantity(item)} >-</button>
+                                            <span className="mx-2">{item.Quantity}</span>
+                                            <button className=" btn btn-success fs-6 py-1 px-2 rounded-0" onClick={() => increaseQuantity(item)}>+</button>
                                         </div>
                                         <div className="">
-                                            <text className="h6">E£ { parseFloat(item.price) * 1000 } </text> <br />
+                                            <text className="h6">E£ {parseFloat(item.price) * item.Quantity * 1000} </text> <br />
                                         </div>
                                     </div>
                                     <div className="col-lg col-sm-6 d-flex justify-content-sm-center justify-content-md-start justify-content-lg-center justify-content-xl-end mb-2">

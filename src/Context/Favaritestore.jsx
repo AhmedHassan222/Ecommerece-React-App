@@ -55,10 +55,9 @@ function FavariteContextProvide(props) {
         }
         if (localStorage.getItem('itemsInCart') != null) {
             const newCartArray = Array.from(new Set(JSON.parse(localStorage.getItem('itemsInCart')).map(el => JSON.stringify(el)))).map(el => JSON.parse(el));
-            // setTotalPrice(JSON.parse(localStorage.getItem('totalPrice')) + total)
             setItemsInCart(newCartArray)
             for (let i = 0; i < newCartArray.length; i++) {
-                price += parseFloat(newCartArray[i].price) * 1000;
+                price += parseFloat(newCartArray[i].price) * newCartArray[i].Quantity * 1000;
 
             }
             setTotalPrice(price)
@@ -67,6 +66,7 @@ function FavariteContextProvide(props) {
             setItemsInCart([])
         }
     }, [])
+
 
     //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
@@ -80,20 +80,22 @@ function FavariteContextProvide(props) {
 
     function addToCart(item) {
         if (localStorage.getItem('user') !== null) {
+            item['Quantity'] = 1;
             setIsLogin(true)
             if (!itemsInCart) {
                 setItemsInCart(item)
                 setCountCart(1)
                 localStorage.setItem('countCart', 1)
-                setTotalPrice(parseFloat(item.price) * 1000)
+                setTotalPrice(parseFloat(item.price) * item.Quantity * 1000)
             } else {
                 itemsInCart.push(item)
                 localStorage.setItem('countCart', Array.from(new Set(itemsInCart)).length)
                 setCountCart(Array.from(new Set(itemsInCart)).length)
-                setTotalPrice(parseFloat(item.price) * 1000 + totalPrice)
+                setTotalPrice(parseFloat(item.price) * item.Quantity * 1000 + totalPrice)
             }
             localStorage.setItem('itemsInCart', JSON.stringify(itemsInCart))
             localStorage.setItem('totalPrice', JSON.stringify(totalPrice))
+            console.log(JSON.parse(localStorage.getItem('itemsInCart')))
         } else {
             setIsLogin(false)
         }
@@ -131,7 +133,7 @@ function FavariteContextProvide(props) {
                 return z !== item;
             })
             for (let i = 0; i < arr.length; i++) {
-                price += parseFloat(arr[i].price) * 1000;
+                price += parseFloat(arr[i].price) * arr[i].Quantity * 1000;
 
             }
             setTotalPrice(price)
@@ -141,6 +143,8 @@ function FavariteContextProvide(props) {
 
         }
     }
+    
+  
 
     return <favariteContext.Provider value={{ favariteArr, isLogin, setCountCart, totalPrice, removeItemFromCart, clearAllItemsFromCart, countCart, itemsInCart, setItemsInCart, addToCart, setCount, setFavariteArr, count, addToFavarite, clearAll, clearItem, setTotalPrice }}>
         {props.children}
