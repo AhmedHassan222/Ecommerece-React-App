@@ -15,7 +15,7 @@ A React ecommerece application
 
 ## Demo
 
-[https://ahmedhassan222.github.io/Ecommerece-React-App/](#) (if applicable)
+[https://ahmedhassan222.github.io/Ecommerece-React-App/](#) 
 
 ## Features
 
