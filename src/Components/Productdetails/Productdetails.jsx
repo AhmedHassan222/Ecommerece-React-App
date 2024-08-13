@@ -1,10 +1,14 @@
 import { Helmet } from "react-helmet"
-import { Link, useParams } from "react-router-dom"
+import fakeImage from "../../assets/fakeImage.png"
+import {  useParams } from "react-router-dom"
 import axios from "axios"
 import { useContext, useEffect, useState } from "react"
 import { favariteContext } from "../../Context/Favaritestore"
+import { CartContext } from "../../Context/Cartstore"
+import style from "./Productdetails.module.css"
 export default function Productdetails() {
-    let { addToFavarite, addToCart, itemsInCart, favariteArr, clearItem } = useContext(favariteContext)
+    let { addToFavarite, favariteArr, clearItem } = useContext(favariteContext)
+    let { addToCart, itemsInCart } = useContext(CartContext)
     let params = useParams()
     const [itemdetails, setItemdetails] = useState({})
     async function getItem(type, id) {
@@ -13,8 +17,10 @@ export default function Productdetails() {
     }
     useEffect(() => {
         window.scrollTo(0, 0)
-        getItem(params.type, params.id)
     }, [])
+    useEffect(() => {
+        getItem(params.type, params.id)
+    }, [params.type , params.id])
     return <>
         <Helmet>
             <title>{itemdetails.name}</title>
@@ -22,7 +28,7 @@ export default function Productdetails() {
         <div className="container ">
             {itemdetails.img !== undefined ? <div className="row  py-5 ">
                 <div className="col-sm-12 col-md-5 col-lg-5 ">
-                    <div>
+                    <div className={`${style.imgBox}`}>
                         <img className="w-100 " src={itemdetails.img} alt="" />
                     </div>
                 </div>
@@ -33,13 +39,12 @@ export default function Productdetails() {
                         {localStorage.getItem('user') !== null ? <div className="text-black d-flex justify-content-start">
                             {Array.from(new Set(favariteArr.map((element) => element.name))).includes(itemdetails.name) ? <i onClick={() => { clearItem(itemdetails) }} className={`fa-solid fa-heart fs-5  me-3 `}></i> : <i onClick={() => { addToFavarite(itemdetails) }} className={`fa-regular fa-heart fs-5  me-3 `}></i>}
                             {Array.from(new Set(itemsInCart.map((element) => element.name))).includes(itemdetails.name) ? <p><i className="fa-regular fa-circle-check"></i> Item added to cart</p> : <i onClick={() => { addToCart(itemdetails) }} className={`fa fa-shopping-cart fs-5`}></i>}
-
-                        </div> : <Link to={'/login'}><i className={`fa-regular fa-heart fs-5  `}></i></Link>}
+                        </div> : ''}
                     </div>
                 </div>
             </div> : <div className="row">
                 <div className="col-sm-12 col-md-5 col-lg-5">
-                    <img className="w-100 card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZpPUeTvF_pPqrSmkYd3cJlM32f6Axh0tCwg&usqp=CAU" alt="..." />
+                    <img className="w-100 card-img-top" src={fakeImage} alt=".." />
                 </div>
                 <div className={`col-sm-12 col-md-5 col-lg-5 p-5`}>
                     <div className="card-body">

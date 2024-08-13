@@ -1,0 +1,14 @@
+.imgBox:hover  img
+{
+    transform:scale(1.05);
+}
+
+.imgBox 
+{
+    overflow:hidden;
+}
+
+img 
+{
+    transition:all 0.3s;
+}

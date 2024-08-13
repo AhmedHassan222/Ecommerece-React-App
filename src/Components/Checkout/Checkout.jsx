@@ -3,10 +3,8 @@ import visa from '../../assets/visa.jpg'
 import paypal from '../../assets/paypal.jpg'
 import { useContext, useState } from 'react'
 import { favariteContext } from './../../Context/Favaritestore';
-import { useNavigate } from 'react-router-dom';
-export default function () {
+export default function Checkout () {
     let { setItemsInCart, setCountCart } = useContext(favariteContext)
-    let navigate = useNavigate()
     const [buyDoneWord, setBuyDoneWord] = useState('')
     function Checkout() {
         setItemsInCart([])
@@ -20,8 +18,8 @@ export default function () {
             {localStorage.getItem('itemsInCart') != null ? <form onSubmit={Checkout} className={` ${style.form} mx-auto`}>
                 <h2 className="text-danger">Payment Method</h2>
                 <div classNam="d-flex justify-content-between my-3 bg-info w-100">
-                    <img className=" w-50" src={visa} />
-                    <img className=" w-50" src={paypal} />
+                    <img className=" w-50" src={visa}  alt='visa'/>
+                    <img className=" w-50" src={paypal} alt="paypal"/>
                 </div>
                 <div className="my-3">
                     <label >Name on Card</label>
@@ -44,10 +42,10 @@ export default function () {
                     <input required className={`w-100 ${style.special}`} type="text" name="exp" id="exp" placeholder="MM/YY"
                         minlength="4" maxlength="4" />
                 </div>
-                <button type='submit' className={`${style.button} my-3`}>MAKE A PAYMENT</button>
-                {buyDoneWord != '' ? <p className='text-success'>{buyDoneWord}</p> : ''}
+                <button type='submit' className={`btn btn-primary w-100 rounded-0 my-3`}>MAKE A PAYMENT</button>
+                {buyDoneWord !== '' ? <p className='text-primary'>{buyDoneWord}</p> : ''}
             </form> : <div className='vh-100 w-75 mx-auto'>
-                <p className='text-success'>{buyDoneWord}</p>
+                <p className='text-primary'>{buyDoneWord}</p>
                 </div>}
         </div>
     </>

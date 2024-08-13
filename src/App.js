@@ -16,6 +16,7 @@ import Checkout from './Components/Checkout/Checkout';
 import Asidebar from './Components/Asidebar/Asidebar';
 import Products from './Components/Products/Products';
 import GetDataContextProvide from './Context/Getdatastore';
+import CartContextProvide from './Context/Cartstore';
 
 function App() {
   const routers = createHashRouter([
@@ -37,13 +38,15 @@ function App() {
   return <>
     <div>
       <Online>
+      <CartContextProvide>
         <GetDataContextProvide>
-          <FavariteContextProvide>
-            <SearchContextProvide>
-              <RouterProvider router={routers} />
-            </SearchContextProvide>
-          </FavariteContextProvide>
+            <FavariteContextProvide>
+                <SearchContextProvide>
+                    <RouterProvider router={routers} />
+                </SearchContextProvide>
+            </FavariteContextProvide>
         </GetDataContextProvide>
+    </CartContextProvide>
       </Online>
       <Offline>
         <Noconnected />

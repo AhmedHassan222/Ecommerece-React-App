@@ -5,8 +5,10 @@ import { wordContext } from "../../Context/Searchstore"
 import { Link, useNavigate } from "react-router-dom"
 import { favariteContext } from './../../Context/Favaritestore';
 import { GetDataContext } from "../../Context/Getdatastore";
+import { CartContext } from "../../Context/Cartstore";
 export default function Asidebar() {
-    let { addToCart, addToFavarite, itemsInCart, favariteArr , clearItem } = useContext(favariteContext)
+    let { addToFavarite, favariteArr, clearItem } = useContext(favariteContext)
+    let { addToCart, itemsInCart } = useContext(CartContext)
     let { getProducts } = useContext(GetDataContext)
     let { search, itemsArray, wordSearch } = useContext(wordContext)
     let navigate = useNavigate()
@@ -35,17 +37,17 @@ export default function Asidebar() {
                             <div className='bg-white p-3'>
                                 <img className="w-100" src={item.img} alt="" />
                                 <div className={`${style.caption}`}>
-                                    <Link to={'/productdetails/' + 'allproduct/' + item.id} className={`${style.box} p-3`}>
+                                    <Link to={`/productdetails/allproduct/${item.id}`} className={`${style.box} p-3`}>
                                         <p className={`${style.textNameContent}`}>{item.name}</p>
                                     </Link>
                                     <div className="d-flex justify-content-between">
-                                        <p className={`${style.priceStyle} fs-5`}>{parseFloat(item.price) * 1000} E£</p>
+                                        <p className={` text-primary fs-5`}>{parseFloat(item.price) * 1000} E£</p>
                                         {localStorage.getItem('user') !== null ? <div>
-                                            {Array.from(new Set(favariteArr.map((element) => element.name))).includes(item.name) ? <i onClick={() => { clearItem(item) }} className={`fa-solid fa-heart fs-5 m-3 `}></i> : <i onClick={() => { addToFavarite(item) }} className={`fa-regular fa-heart fs-5 m-3 `}></i>}
+                                            {Array.from(new Set(favariteArr.map((element) => element.name))).includes(item.name) ? <i onClick={() => { clearItem(item) }} className={`fa-solid text-danger fa-heart fs-5 m-3 `}></i> : <i onClick={() => { addToFavarite(item) }} className={`fa-regular fa-heart fs-5 m-3 `}></i>}
                                         </div> : <Link to={'/login'}><i className={`fa-regular fa-heart fs-5 ${style.favarite}`}></i></Link>}                                    </div>
                                     {localStorage.getItem('user') !== null ? <div>
-                                        {Array.from(new Set(itemsInCart.map((element) => element.name))).includes(item.name) ? <p><i className="fa-regular fa-circle-check"></i> Item added to cart</p> : <button onClick={() => { addToCart(item) }} className={`${style.btnStyle}`}>Add To Cart</button>}
-                                    </div> : <Link to={'/login'}><button className={`${style.btnStyle}`}>Add To Cart</button></Link>}
+                                        {Array.from(new Set(itemsInCart.map((element) => element.name))).includes(item.name) ? <p><i className="fa-regular fa-circle-check"></i> Item added to cart</p> : <button onClick={() => { addToCart(item) }} className={`btn btn-primary w-100 rounded-0`}>Add To Cart</button>}
+                                    </div> : <Link to={'/login'}><button className={`btn btn-primary w-100 rounded-0`}>Add To Cart</button></Link>}
                                 </div>
                             </div>
                         </div>)}

@@ -6,7 +6,7 @@ export default function Noconnected() {
         </Helmet>
         <div className="d-flex w-100 vh-100 justify-content-center align-items-center text-center " >
             <div>
-                <i class="fa-solid fa-wifi mb-5 fs-1"></i>
+                <i className="fa-solid fa-wifi mb-5 fs-1"></i>
                 <h3 className="fs-1">No internet</h3>
                 <h3 className="fs-4">Reconnecting to Wi-Fi</h3>
             </div>

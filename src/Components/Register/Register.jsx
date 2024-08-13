@@ -1,19 +1,15 @@
-import style from './Register.module.css'
+import style from "../../Auth.module.css"
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import { Helmet } from 'react-helmet';
 import Joi from 'joi';
 export default function Register() {
-
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
-
-
     let navigate = useNavigate()
     let [errorList, setErrorList] = useState([])
-
     const [user, setUser] = useState({
         name: "",
         password: "",
@@ -21,15 +17,12 @@ export default function Register() {
         email: "",
         phone: ""
     })
-
-
     const [error, setError] = useState('')
     const [isLoading, setIsLoading] = useState(false)
     function getUser(e) {
         let _user = { ...user }
         _user[e.target.name] = e.target.value;
         setUser(_user)
-        console.log(user)
     }
     function validateRegister() {
         let schema = Joi.object({
@@ -43,12 +36,10 @@ export default function Register() {
     }
     async function sendData() {
         await axios.post(`https://ecommerce.routemisr.com/api/v1/auth/signup`, user).then((response) => {
-
             navigate("/login")
         }).catch((error) => {
             setError(error.response.data.message);
             setIsLoading(false)
-
         });
     }
     function submitForm(e) {
@@ -59,7 +50,7 @@ export default function Register() {
             setIsLoading(false)
             setErrorList(validation.error.details)
         } else {
-            console.log('true')
+            sendData();
         }
     }
     return <>
@@ -68,12 +59,10 @@ export default function Register() {
         </Helmet>
         <div className="py-5">
             <form onSubmit={submitForm} action="" className={` mx-auto ${style.form}`}>
-
                 <h3 className=' text-start mb-5'>Create An Account</h3>
                 {errorList.length > 0 ? <div>
                     <ul className='p-1 text-danger'>
-                        {errorList.map((error, index) => error.context.label == "password" ? <li key={index} className='p-1 '>password must more than 8 letter</li> : <li className='p-1' key={index} >{error.message}</li>)}
-
+                        {errorList.map((error, index) => error.context.label === "password" ? <li key={index} className='p-1 '>password must more than 8 letter</li> : <li className='p-1' key={index} >{error.message}</li>)}
                     </ul>
                 </div> : ""}
                 <div className={`${style.group}`}>
@@ -92,20 +81,13 @@ export default function Register() {
                     <input onChange={getUser} placeholder='Phone Number' className={`${style.special} bg-transparent`} type="tel" name="phone" />
                 </div>
                 {error !== '' ? <p className='text-danger fs-6 '>*{error}</p> : ''}
-
-
-                <button className={`${style.button} `}>
-                    {isLoading == true ? <div class="spinner-border " role="status">
-                        <span class="visually-hidden  ">Loading...</span>
+                <button className={`btn btn-primary w-100 rounded-0 `}>
+                    {isLoading === true ? <div className="spinner-border " role="status">
+                        <span className="visually-hidden  ">Loading...</span>
                     </div> : 'Register'}
                 </button>
-
-                <p className='text-start  fs-6 mt-5'>Do you have already an account? <Link className={`${style.text}`} to='/login'>Log In</Link> </p>
-
+                <p className='text-start  fs-6 mt-5'>Do you have already an account? <Link to='/login'>Log In</Link> </p>
             </form>
-
-
         </div>
     </>
 }
-

@@ -1,12 +1,10 @@
-import style from "./Login.module.css"
+import style from "../../Auth.module.css"
 import { useState , useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom'
 import Joi from "joi";
 import axios from 'axios';
 import { Helmet } from 'react-helmet';
 export default function Login() {
-
-
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
@@ -18,7 +16,6 @@ export default function Login() {
     const [error, setError] = useState('')
     const [errorList, setErrorList] = useState('')
     const [isLoading, setIsLoading] = useState(false)
-
     function getUser(e) {
         let _user = { ...user }
         _user[e.target.name] = e.target.value;
@@ -29,7 +26,6 @@ export default function Login() {
         let schema = Joi.object({
             email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }).required(),
             password: Joi.string().pattern(/([a-zA-Z0-9]){8,}/).required(),
-
         })
         return schema.validate(user, { abortEarly: false })
     }
@@ -40,8 +36,6 @@ export default function Login() {
         }).catch((error) => {
             setError(error.response.data.message);
             setIsLoading(false);
-
-
         })
     }
     function submitForm(e) {
@@ -53,10 +47,7 @@ export default function Login() {
             setErrorList(validation.error.details)
         }else {
             sendData()
-
         }
-
-
     }
     return <>
         <Helmet>
@@ -64,12 +55,10 @@ export default function Login() {
         </Helmet>
         <div className="py-5">
             <form onSubmit={submitForm} action="" className={` mx-auto ${style.form}`}>
-
                 <h3 className=' text-start mb-5'>Sign In</h3>
                 {errorList.length > 0 ? <div>
                     <ul className='p-1 text-danger'>
                         {errorList.map((error, index) => error.context.label === "password" ? <li key={index} className='p-1 '>password must more than 8 letter</li> : <li className='p-1' key={index} >{error.message}</li>)}
-
                     </ul>
                 </div> : ""}
                 <div className={`${style.group}`}>
@@ -78,24 +67,14 @@ export default function Login() {
                 <div className={`${style.group}`}>
                     <input onChange={getUser} placeholder='Password ' className={`${style.special} bg-transparent`} type="password" name="password" />
                 </div>
-
-
-
                 {error !== '' ? <p className='text-danger fs-6 '>*{error}</p> : ''}
-
-
-                <button className={`${style.button} `}>
+                <button className={`btn btn-primary w-100 rounded-0 `}>
                     {isLoading === true ? <div className="spinner-border " role="status">
                         <span className="visually-hidden  ">Loading...</span>
                     </div> : 'Login'}
                 </button>
-
-                <p className='text-start  fs-6 mt-5'>Create An Account ? <Link className={`${style.text}`} to='/register'>Register</Link> </p>
-
+                <p className='text-start  fs-6 mt-5'>Create An Account ? <Link to='/register'>Register</Link> </p>
             </form>
-
-
         </div>
     </>
 }
-

@@ -3,15 +3,16 @@ import style from "./Nav.module.css"
 import { useContext, useEffect } from "react";
 import { favariteContext } from "../../Context/Favaritestore";
 import loginNav from '../../assets/logo-footer.png'
+import { CartContext } from "../../Context/Cartstore";
 export default function Nav() {
-    let { setCountCart, countCart, count, setCount, setFavariteArr, setItemsInCart , setTotalPrice } = useContext(favariteContext)
+    let {   setCount, setFavariteArr  } = useContext(favariteContext)
+    let { setCountCart, setItemsInCart  } = useContext(CartContext)
     let navigate = useNavigate()
     function logout() {
         localStorage.removeItem('user')
         setCount(0)
         setFavariteArr([])
         setItemsInCart([])
-        setTotalPrice(0)
         setCountCart(0)
         localStorage.clear()
         navigate('/login')
@@ -42,18 +43,18 @@ export default function Nav() {
                     </span>
                     <span className="nav-item ">
                         <Link to='favarite' className={`nav-link ${style.linkStyle}      mx-2  `}>
-                            <i className={`fa-regular fa-heart    aling-self-center  `}></i>{count}
+                            <i className={`fa-regular fa-heart    aling-self-center  `}></i>{JSON.parse(localStorage.getItem('count'))}
                         </Link>
                     </span>
                     <span className="nav-item position-relative">
                         <Link to='cart' className={`nav-link        ${style.linkStyle}   mx-1`}>
-                            <i className={`fa-solid fa-bag-shopping      `}></i>{countCart}
+                            <i className={`fa-solid fa-bag-shopping      `}></i>{JSON.parse(localStorage.getItem('countCart'))}
                         </Link>
                     </span>
                     {
                         localStorage.getItem('user') === null ? <div className="d-flex">
                             <span className="nav-item">
-                                <Link className={`nav-link ${style.linkStyle}    p-1   mx-1 `} to="login"><i className="fa-solid fa-user"></i> Login</Link>
+                                <Link className={`nav-link ${style.linkStyle}    p-1   mx-1 `} to="login"><i className="fa-solid fa-user"></i> </Link>
                             </span>
                         </div> : <li onClick={logout} className={`nav-link ${style.linkStyle}     p-1     mx-1 `} ><i className="fa-solid fa-arrow-right-from-bracket"></i></li>
                     }

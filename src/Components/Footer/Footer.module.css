@@ -1,17 +1,12 @@
 .bg {
     background-color: #fff;
 }
-
-
 .bgTop {
     transition: all 0.5s;
     background-color: whitesmoke;
 
 }
-
 .bgTop:hover {
     background-color: rgb(230, 230, 230);
-
     cursor: pointer;
-
 }

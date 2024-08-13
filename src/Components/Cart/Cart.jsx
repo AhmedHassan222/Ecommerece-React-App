@@ -1,37 +1,55 @@
-import { useContext, useMemo, useState } from "react"
+import { useContext, useState } from "react"
 import { favariteContext } from "../../Context/Favaritestore"
 import { Helmet } from "react-helmet"
 import { Link } from "react-router-dom"
+import { CartContext } from "../../Context/Cartstore"
 export default function Cart() {
-    let { itemsInCart, removeItemFromCart, totalPrice, favariteArr, clearItem, addToFavarite, setItemsInCart } = useContext(favariteContext)
+    let { favariteArr, clearItem, addToFavarite } = useContext(favariteContext)
+    let { itemsInCart, removeItemFromCart, setItemsInCart } = useContext(CartContext)
+    let [totalPrice, setTotalPrice] = useState(0);
     const [discount, setDiscount] = useState(0)
     const [input, setInput] = useState(0)
+    //function increase Qunatity
     function increaseQuantity(item) {
         for (let i = 0; i < itemsInCart.length; i++) {
-            if (item.id === itemsInCart[i].id) {
-                ++itemsInCart[i].Quantity
+            if (item.name === itemsInCart[i].name) {
+                ++itemsInCart[i].Quantity;
+                itemsInCart[i].price = parseFloat(itemsInCart[i].price)  / (itemsInCart[i].Quantity - 1) * itemsInCart[i].Quantity
             }
         }
         localStorage.setItem('itemsInCart', JSON.stringify(itemsInCart))
         setItemsInCart(JSON.parse(localStorage.getItem('itemsInCart')))
+        setTotalPrice(totalPrice)
     }
+    //function decrease Quantity
     function decreaseQuantity(item) {
         for (let i = 0; i < itemsInCart.length; i++) {
-            if (item.id === itemsInCart[i].id) {
-                if(itemsInCart[i].Quantity > 1){
+            if (item.name === itemsInCart[i].name) {
+                if (itemsInCart[i].Quantity > 1) {
                     --itemsInCart[i].Quantity;
+                    itemsInCart[i].price = parseFloat(itemsInCart[i].price)  / (itemsInCart[i].Quantity + 1) * itemsInCart[i].Quantity
                 }
             }
         }
         localStorage.setItem('itemsInCart', JSON.stringify(itemsInCart))
         setItemsInCart(JSON.parse(localStorage.getItem('itemsInCart')))
     }
+    //function apply promo code
     function apply() {
         if (input === 'Z100') {
             setDiscount(totalPrice * 25 / 100)
         } else {
             setDiscount(0)
         }
+    }
+    //function calculate total price
+    function calculateTotal(){
+        let price = 0;
+        for (let i = 0; i < itemsInCart.length; i++) {
+            price += parseFloat(itemsInCart[i].price) * 1000
+        }
+        localStorage.setItem('totalPrice', JSON.stringify(price))
+        setTotalPrice(JSON.parse(localStorage.getItem('totalPrice')))
     }
     return <>
         <Helmet>
@@ -56,17 +74,17 @@ export default function Cart() {
                                     </div>
                                     <div className="col-lg-2 col-sm-6 col-6 d-flex flex-row flex-lg-column flex-xl-row text-nowrap">
                                         <div className=" me-4 ">
-                                            <button className=" btn btn-success fs-6 py-1 px-2 rounded-0" onClick={() =>  decreaseQuantity(item)} >-</button>
+                                            <button className=" btn btn-primary fs-6 py-1 px-2 rounded-0" onClick={() => decreaseQuantity(item)} >-</button>
                                             <span className="mx-2">{item.Quantity}</span>
-                                            <button className=" btn btn-success fs-6 py-1 px-2 rounded-0" onClick={() => increaseQuantity(item)}>+</button>
+                                            <button className=" btn btn-primary fs-6 py-1 px-2 rounded-0" onClick={() => increaseQuantity(item)}>+</button>
                                         </div>
                                         <div className="">
-                                            <text className="h6">E£ {parseFloat(item.price) * item.Quantity * 1000} </text> <br />
+                                            <text className="h6">E£ {parseFloat(item.price) * 1000} </text> <br />
                                         </div>
                                     </div>
                                     <div className="col-lg col-sm-6 d-flex justify-content-sm-center justify-content-md-start justify-content-lg-center justify-content-xl-end mb-2">
                                         <div className="float-md-end">
-                                            {Array.from(new Set(favariteArr.map((element) => element.name))).includes(item.name) ? <i onClick={() => { clearItem(item) }} className={`fa-solid fa-heart fs-5 m-3 `}></i> : <i onClick={() => { addToFavarite(item) }} className={`fa-regular fa-heart fs-5 m-3 `}></i>}
+                                            {Array.from(new Set(favariteArr.map((element) => element.name))).includes(item.name) ? <i onClick={() => { clearItem(item) }} className={`fa-solid text-danger fa-heart fs-5 m-3 `}></i> : <i onClick={() => { addToFavarite(item) }} className={`fa-regular fa-heart fs-5 m-3 `}></i>}
                                             <button onClick={() => { removeItemFromCart(item) }} className="btn btn-light border text-danger icon-hover-danger"> Remove</button>
                                         </div>
                                     </div>
@@ -86,7 +104,7 @@ export default function Cart() {
                             <div className="card-body">
                                 <div className="form-group">
                                     <label className="form-label">Have coupon?</label>
-                                    <p className="text-success small">
+                                    <p className="text-primary small">
                                         You win Cupont Code "Z100"
                                     </p>
                                     <div className="input-group">
@@ -98,13 +116,14 @@ export default function Cart() {
                         </div>
                         <div className="card shadow-0 border">
                             <div className="card-body">
+                            <button onClick={calculateTotal} className="btn btn-primary w-100 shadow-0 mb-3"> Calculate Total </button>
                                 <div className="d-flex justify-content-between">
                                     <p className="mb-2">Total price:</p>
                                     <p className="mb-2"> E£ {totalPrice} </p>
                                 </div>
                                 <div className="d-flex justify-content-between">
                                     <p className="mb-2">Discount:</p>
-                                    <p className="mb-2 text-success">-E£ {discount}</p>
+                                    <p className="mb-2 text-primary">-E£ {discount}</p>
                                 </div>
                                 <div className="d-flex justify-content-between">
                                     <p className="mb-2">TAX:</p>
@@ -116,7 +135,7 @@ export default function Cart() {
                                     <p className="mb-2 fw-bold">E£ {totalPrice - discount + totalPrice * (14 / 100)}</p>
                                 </div>
                                 <div className="mt-3">
-                                    <Link to={'/checkout'} className="btn btn-success w-100 shadow-0 mb-2"> Checkout </Link>
+                                    <Link to={'/checkout'} className="btn btn-primary w-100 shadow-0 mb-2"> Checkout </Link>
                                     <Link to={'/'} className="btn btn-light w-100 border mt-2"> Back to shop </Link>
                                 </div>
                             </div>
@@ -127,41 +146,3 @@ export default function Cart() {
         </section>
     </>
 }
-
-
-// import React, { useState } from 'react';
-
-// const Cart = () => {
-//     // Initial state of the cart
-//     const [cart, setCart] = useState([
-//         { id: 1, name: 'Product 1', quantity: 1, price: 10 },
-//         { id: 2, name: 'Product 2', quantity: 1, price: 20 },
-//     ]);
-
-//     // Function to handle quantity change
-//     const handleQuantityChange = (productId, amount) => {
-//         setCart(cart.map(item =>
-//             item.id === productId
-//                 ? { ...item, quantity: item.quantity + amount }
-//                 : item
-//         ));
-//     };
-
-//     return (
-//         <div>
-//             <h2>Shopping Cart</h2>
-//             <ul>
-//                 {cart.map(item => (
-//                     <li key={item.id}>
-//                         {item.name} - Quantity: {item.quantity}
-//                         <button onClick={() => handleQuantityChange(item.id, 1)}>+</button>
-//                         <button onClick={() => handleQuantityChange(item.id, -1)}>-</button>
-//                     </li>
-//                 ))}
-//             </ul>
-//             <div>Total: ${cart.reduce((total, item) => total + item.price * item.quantity, 0)}</div>
-//         </div>
-//     );
-// };
-
-// export default Cart;
