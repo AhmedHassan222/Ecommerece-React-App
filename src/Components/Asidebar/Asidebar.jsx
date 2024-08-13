@@ -33,7 +33,7 @@ export default function Asidebar() {
             <div className={`w-100 vh-100 py-5 ${style.box}`}>
                 <div className="container">
                     {wordSearch !== '' ? <div className="row">
-                        {itemsArray.map((item, index) => <div key={index} className="col-6 col-sm-6 col-md-4 col-lg-3">
+                        {itemsArray.map((item, index) => <div key={index} className="col-sm-12 col-md-4 col-lg-3">
                             <div className='bg-white p-3'>
                                 <img className="w-100" src={item.img} alt="" />
                                 <div className={`${style.caption}`}>

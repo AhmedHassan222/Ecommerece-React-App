@@ -86,7 +86,7 @@ export default function Products() {
             </div>
         </div> : <div className="container py-3">
                 <div className="row g-3">
-                    {items.map((item, index) => <div key={index} className={` col-6  col-sm-6 col-md-4 col-lg-3`}>
+                    {items.map((item, index) => <div key={index} className={` col-sm-12 col-md-4 col-lg-3`}>
                         <div className={`bg-white p-3 ${style.content}`}>
                             <img className="w-100" src={item.img} alt="" />
                             <div className={`${style.caption}`}>
