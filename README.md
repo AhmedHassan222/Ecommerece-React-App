@@ -1,7 +1,7 @@
-# Project Name
+# eMarket
 
 **Description:**
-A React application designed to display customer and transaction data. The app includes features like filtering and charting to help users interact with and analyze data efficiently.
+A React ecommerece application 
 
 ## Table of Contents
 
