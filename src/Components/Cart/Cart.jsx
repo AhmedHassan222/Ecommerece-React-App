@@ -63,7 +63,7 @@ export default function Cart() {
                             <div className="m-4">
                                 <h4 className="card-title mb-4">Your shopping cart</h4>
                                 {localStorage.getItem('itemsInCart') === null ? <p className="text-danger">*No Item added yet</p> : '  '}
-                                {Array.from(new Set(itemsInCart)).map((item, index) => <div key={index} className="row ">
+                                {Array.from(new Set(itemsInCart)).map((item, index) => <div key={index} className="row mb-4">
                                     <div className="col-lg-5">
                                         <div className="me-lg-5">
                                             <div className="d-flex">
